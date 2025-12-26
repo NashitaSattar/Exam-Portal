@@ -11,7 +11,10 @@ export function Submit(){
             </div>
             <div className="submit-submit-container">
                 <div className="submit-submit">
-                    <Link to="/login" className="login-submit-link">Back to Login</Link>
+                            <Link to="/dashboard" className="submit-submit">Back to Dashboard</Link>
+                </div>
+                <div className="submit-submit">
+                            <Link to="/login" className="submit-submit">Logout</Link>
                 </div>
             </div>
 

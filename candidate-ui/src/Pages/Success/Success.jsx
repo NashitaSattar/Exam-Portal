@@ -15,6 +15,9 @@ export function Success(){
                     </div>
                     <div className="success-submit-container">
                         <div className="success-submit">
+                            <Link to="/dashboard" className="success-submit">Back to Dashboard</Link>
+                        </div>
+                        <div className="success-submit">
                             <Link to="/examination" className="success-submit">Start Examination</Link>
                         </div>
                     </div>

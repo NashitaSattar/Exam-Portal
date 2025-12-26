@@ -23,7 +23,7 @@ export function Login(){
             </div>
             <div className="login-submit-container">
                 <div className="login-submit">
-                    <Link to="/camera" className="login-submit-link">Login</Link>
+                    <Link to="/dashboard" className="login-submit-link">Login</Link>
                 </div>
             </div>
         </div>

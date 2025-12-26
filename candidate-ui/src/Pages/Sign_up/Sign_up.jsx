@@ -32,7 +32,7 @@ export function Sign_up(){
             </div>
             <div className="signup-submit-container">
                 <div className="signup-submit">
-                    <Link to="/camera" className="signup-submit-link">Sign Up</Link>
+                    <Link to="/dashboard" className="signup-submit-link">Sign Up</Link>
                 </div>
                 <div className="signup-submit">
                     <Link to="/login" className="signup-submit-link">Login</Link>

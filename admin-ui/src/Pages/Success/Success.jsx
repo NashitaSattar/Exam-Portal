@@ -11,10 +11,10 @@ export function Success(){
                     </div>
                     <div className="success-submit-container">
                         <div className="success-submit">
-                            <Link to="/registration" className="success-submit-link">Send Another Invitation</Link>
+                            <Link to="/dashboard" className="success-submit-link">Back to Dashboard</Link>
                         </div>
                         <div className="success-submit">
-                            <Link to="/" className="success-submit-link">Log Out</Link>
+                            <Link to="/registration" className="success-submit-link">Send Another Invitation</Link>
                         </div>
                     </div>
                 </div>

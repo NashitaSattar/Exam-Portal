@@ -27,6 +27,9 @@ export function Registration(){
                 </div>
             </div>
             <div className="registration-submit-container">
+                <div className="success-submit">
+                    <Link to="/dashboard" className="success-submit-link">Back to Dashboard</Link>
+                 </div>
                 <div className="registration-submit">
                     <Link to="/success" className="registration-submit-link">Send Invitation</Link>
                 </div>
