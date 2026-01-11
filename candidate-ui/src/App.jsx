@@ -10,16 +10,24 @@ import { Dashboard } from './Pages/Dashboard/Dashboard'
 
 
 function App() {
+  const [isLogin, setIsLogin] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("isLoggedIn", isLogin);
+  }, [isLogin]);
+  
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Sign_up/>}/>
+          <Route path="/" element={<Sign_up setIsLogin={setIsLogin}/>}/>
           <Route path="/camera" element={<Camera/>}/>
           <Route path="/success" element={<Success/>}/>
           <Route path="/examination" element={<Examination/>}/>
           <Route path="/submit" element={<Submit/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login setIsLogin={setIsLogin}/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </Router>

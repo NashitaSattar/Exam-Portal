@@ -1,47 +1,91 @@
-import { Link } from "react-router"
-import './Dashboard.css'
+import { Link } from "react-router-dom";
+import "./Dashboard.css";
+import { useEffect, useState } from "react";
+import { getUsers, deleteUser } from "../../service/userService";
+import { useParams } from "react-router-dom";
 
-export function Dashboard(){
-    const data = 
-    [
-    { id: 1, first_name: "First1", last_name: "Last1", email: "example1.com" },
-    { id: 2, first_name: "First2", last_name: "Last2", email: "example2.com" },
-    { id: 3, first_name: "First3", last_name: "Last3", email: "example3.com" },
-    ]
+export function Dashboard() {
+    const {id} = useParams();
+    const [users, setUsers] = useState([]);
+    const [error, setError] = useState("");
 
-    return(
-        <div className='dashboard-container'>
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await getUsers();
+            setUsers(response.data);
+        } catch (error) {
+            setError("Failed to fetch users");
+        }
+    };
+
+    const handleDelete = async (id) => {
+        const result = window.confirm("Are you sure you want to delete this user?")
+        if (!result) {
+            return;
+        }
+        try {
+            await deleteUser(id)
+            fetchUsers();
+        } catch (error) {
+            setError("Error occured when deleting task")
+        }
+    };
+
+    return (
+        <div className="dashboard-container">
             <div className="dashboard-header">
                 <div className="dashboard-text">Admin Dashboard</div>
                 <div className="dashboard-underline"></div>
             </div>
-            <table className="dashboard-table">
-                <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                </tr>
-                {data.map((val) => {                    
-                    return (
-                        <tr key={val.id} className="dashboard-table-header">
-                            <td className="dashboard-table-data">{val.id}</td>
-                            <td className="dashboard-table-data">{val.first_name}</td>
-                            <td className="dashboard-table-data">{val.last_name}</td>
-                            <td className="dashboard-table-data">{val.email}</td>
+
+            {error && <p className="text-danger">{error}</p>}
+
+            <div>
+                <table className="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
-                    )
-                    })}
-            </table>
-    
+                    </thead>
+                    <tbody className="dashboard-table-data">
+                        {users.map((user) => (
+                            <tr key={user.id}>
+                                <td>{user.id}</td>
+                                <td>{user.firstName}</td>
+                                <td>{user.lastName}</td>
+                                <td>{user.email}</td>
+                                <td>{user.status}</td>
+                                <td className="dashboard-actions">
+                                    <Link to={`/update/${user.id}`} className="dashboard-update-button">Update</Link>
+                                    <button onClick={e => handleDelete(user.id)} className="dashboard-delete-button ">Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
             <div className="dashboard-submit-container">
                 <div className="dashboard-submit">
-                <Link to="/registration" className="dashboard-submit-link">Submit Invitation</Link>
+                    <Link to="/registration" className="dashboard-submit-link">
+                        Submit Invitation
+                    </Link>
                 </div>
                 <div className="dashboard-submit">
-                <Link to="/" className="dashboard-submit-link">Logout</Link>
+                    <Link to="/" className="dashboard-submit-link">
+                        Logout
+                    </Link>
                 </div>
             </div>
         </div>
-    )
+    );
 }

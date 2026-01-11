@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "ae29",
+      "firstName": "First1",
+      "lastName": "Last1",
+      "email": "user1@example.com",
+      "status": "Invited"
+    },
+    {
+      "id": "1130",
+      "firstName": "First2",
+      "lastName": "Last2",
+      "email": "user2@example.com",
+      "status": "Invited"
+    },
+    {
+      "id": "5b0e",
+      "firstName": "First3",
+      "lastName": "Last3",
+      "email": "user3@example.com",
+      "status": "Invited"
+    }
+  ]
+}

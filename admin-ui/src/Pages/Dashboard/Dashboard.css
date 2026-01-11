@@ -93,12 +93,50 @@
 
 .dashboard-table-data{
     background-color: #e8e8e8;
-
+    font-weight: 500;
 }
 
 
 .dashboard-table td {
   color: #000000; 
+}
+
+.dashboard-update-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    background: #07a007;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+
+.dashboard-delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    background: #b60a0a;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.dashboard-actions {
+    display: flex;
+    flex-direction: column;      
+    justify-content: center;     
+    align-items: center;        
 }
 
 
