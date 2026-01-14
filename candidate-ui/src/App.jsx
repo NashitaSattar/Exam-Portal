@@ -7,6 +7,7 @@ import { Examination } from './Pages/Examination/Examination'
 import { Submit } from './Pages/Submit/Submit'
 import {Login} from './Pages/Login/Login'
 import { Dashboard } from './Pages/Dashboard/Dashboard'
+import { useState, useEffect } from 'react'
 
 
 function App() {
